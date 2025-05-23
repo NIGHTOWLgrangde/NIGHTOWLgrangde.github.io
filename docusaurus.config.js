@@ -73,6 +73,18 @@ const config = {
           src: 'img/logo.svg',
         },
         items: [
+          {
+            label: '自我介绍',
+            to: '/docs/intro',
+          },
+          {
+            label: '博客',
+            to: '/blog',
+          },
+          {
+            label: '歌歌',
+            to: '/docs/song',
+          },
         ],
       },
       footer: {
@@ -88,7 +100,11 @@ const config = {
               {
                 label: '博客',
                 to: '/blog',
-              }
+              },
+              {
+                label: '歌歌',
+                to: '/docs/song',
+              },
             ],
           },
           {
@@ -102,7 +118,7 @@ const config = {
             ],
           },
         ],
-        copyright: `copyright`,
+        copyright: `Copyright ©2025 沐沐的自闭小站. Built with Docusaurus.<a href="https://icp.gov.moe/?keyword=20255008" target="_blank">萌ICP备20255008号</a>`,
       },
       prism: {
         theme: prismThemes.github,

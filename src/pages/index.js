@@ -62,11 +62,12 @@ export default function () {
                 <div id='index-page-bg' style={{ backgroundImage: `url(${backgroundImage})` }}></div>
                 <div id='index-page-bg-mask'></div>
                 <div id='index-page-main'>
+
                     <div id='logo' style={{ textAlign: "center" }}>
-                        <span>标题</span>
+                        <input type='text' placeholder='请输入文本' style={{ width: '100%', fontSize: '60px', textAlign: 'center', borderRadius: '20px', backgroundColor: '#FFFFFF66', border: '4px solid black' }}></input>
                     </div>
                     <div id='index-page-description'>
-                        说话
+                        黑子说话！
                     </div>
                     <div id='index-page-button-container'>
                         <div id='index-page-button'>
@@ -79,6 +80,11 @@ export default function () {
                                 className="button button--secondary button--lg"
                                 to="./docs/intro">
                                 自我介绍
+                            </Link>
+                            <Link
+                                className="button button--secondary button--lg"
+                                to="./docs/song">
+                                歌歌
                             </Link>
                         </div>
                     </div>
