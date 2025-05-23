@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>今日人品</title>
+</head>
+
+<body id="body">
+    <div class="main">
+        <div class="jrrp" id="jrrp">
+        </div>
+        <div class="tips" id="tips">
+            如果出现了这行字请向我报告,谢谢!
+        </div>
+        <div class="color" id="color">
+        </div>
+        <button type="button" class="back" onclick="window.location.replace('../docs/jrrp')">返回</button>
+        <button type="button" class="back" onclick="window.location.reload()">重抽</button>
+    </div>
+</body>
+
+<style>
+    html,
+    body {
+        background-color: #000;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    div.main {
+        margin: 25vh 25vw;
+        width: 50vw;
+        height: 50vh;
+    }
+
+    div.jrrp {
+        font-family: SimHei;
+        margin: 0;
+        width: 50vw;
+        height: 20vh;
+        text-align: center;
+        border: 1px solid #fff;
+        color: #ff8080;
+        font-size: 18vh;
+        background-color: #00000080;
+    }
+
+    div.tips {
+        font-family: SimHei;
+        margin: 0;
+        padding: 2vh 3vw;
+        width: 44vw;
+        height: 16vh;
+        text-align: center;
+        border: 1px solid #fff;
+        color: #d8d8d8;
+        font-size: 2.25vh;
+        line-height: 4vh;
+        background-color: #00000080;
+    }
+
+    div.color {
+        font-family: SimHei;
+        margin: 0;
+        width: 50vw;
+        height: 10vh;
+        text-align: center;
+        border: 1px solid #fff;
+        color: #d8d8d8;
+        font-size: 2.5vh;
+        line-height: 5vh;
+        background-color: #00000080;
+    }
+
+    button.back {
+        font-family: SimHei;
+        text-align: center;
+        border: 1px solid #fff;
+        color: #d8d8d8;
+        font-size: 2vh;
+        background-color: #00000080;
+    }
+
+    button.back:hover {
+        background-color: #80808080;
+    }
+</style>
+
+<script>
+    let word = [
+        "****,*****,****!!!",
+        "****,*《**》**********************!!!",
+        "*Bass *Kick *Kick *Kick",
+        "/查询精神状况",
+        "↑↓↑→←→←→",
+        "400 Bad Request",
+        "403 Forbidden",
+        "404 Not Found",
+        "410 Gone",
+        "418 I'm a teapot",
+        "502 Bad Gateway",
+        "let jrrp = 101;",
+        "Oonp,加载tips的时候出现了问题,可能是这个tips被吃掉了...呜呜呜",
+        "Powered by Fox Power",
+        "Process exited after 1 seconds with return value 3221225477",
+        "嗷呜?你是谁?我怎么没见——啊啊——别撅了别撅了,我认识你了!",
+        "把装在我家的摄像头拆一下,懂?",
+        "吧唧吧唧吧唧哦哦呜呜哈,啦啦哦哦嘻嘻唔,咔嚓咔嚓呜呜哦,呜哇呜哇哒哒哒",
+        "本tips已堕入幻想乡......",
+        "不会吧不会吧怎么还有大叔连人品都到不了100啊~杂鱼!杂鱼!",
+        "不是哥们,怎么突然打开jrrp了,我和你说这玩意一个不好可是要杀头的!",
+        "此tips由AI生成,不代表狐狸官方立场",
+        "大家好,我是秦始皇,V我50一统中国,事成带你去缅甸做藩国藩王",
+        "二次元头像的都是死肥宅,骗不到钱",
+        "富婆 饿饿 饭饭 呜呜",
+        "概率被暗改了!",
+        "还在熬夜吗?睡觉小助手提醒您,早睡早起身体好,晚上不睡就犭",
+        "汗流浃背了吧,老弟",
+        "会打音游的男生真的很扣分,我都是直接删除的",
+        "货拉拉拉不拉拉得多的拉布拉多?",
+        "可以试着在这里写几条tips哦,说不定以后哪天就用上了",
+        "喵喵喵~喵喵~喵呜~~~喵!!!喵?喵~!喵喵喵~~~喵喵www",
+        "民风淳朴哥谭市,和谐安康大家园",
+        "哪里来的青雀,一回合吃我18个战技点,快滚快滚",
+        "那...那个......,我...第一次......当女生...有点...紧张...",
+        "你抽不到我,我是山里灵活的tips",
+        "-你的人生有什么意义?-去码头整点薯条",
+        "你何必如此关心我这个tips呢...",
+        "-你买的什么书? -《编程》 -C++还是Java? -沈从文",
+        "你以为我在整活的时候,实际上我是在掩饰程序真的出了问题",
+        "你这个人真的是莫名其妙,小孩子不懂事,你和他计较什么?",
+        "你知道吗:你知不知道我知道你知道而你不知道我知道",
+        "乾狐离光是一只狐狸,是的......嗯?狐狸怎么你了?",
+        "请不要过度调戏本bot!",
+        "天冷了记得多操心爱的人",
+        "我被遗忘了吗?",
+        "我不喜欢这个Tips,下一个!",
+        "我的评价是:如果你不喜欢地球OL,那就不要玩,去玩Cytus II",
+        "我命由我不由天,不羡鸳鸯不羡仙,待到秋来九月八,满城尽带黄金甲",
+        "我死了,死在腐烂的花朵之上,黑暗,吞噬我......",
+        "我也想有这么多根手指",
+        "我有二十根手指",
+        "我有十根手指",
+        "我有五根手指",
+        "我有一个Tips笑话,但某些Tips被狐狸暗改了",
+        "谢谢你们,哇哇哇,我好喜欢啊,虽然好像有一点点紧,你们怎么知道我喜欢...",
+        "有没有人和我写bot,我负责帮你新建文件夹,你负责完成bot()",
+        "这大概是今年我发的最后一个Tips了,再在咱们群待一天,我就要走了,大家明年再见",
+        "这个世界,就是一场永不落幕的巨大游戏......",
+        "这是什么,失忆药?吃一颗...这是什么,失忆药?吃一颗...这是什么,失忆药?吃一颗...",
+        "这是一个tips",
+        "这下真成最有文化的一集了",
+        "程序运行错误,请检查代码是否正确",
+        "人生如此,拿酒来",
+        "荣nya!断幺九!一番!1000点!",
+        "你的防守在自摸比前一无是处",
+        "[暂不支持该消息类型]",
+        "自摸!四暗刻单骑!1300点!",
+        "杠nya...日,他宝贝的读秒了",
+        "其实国士无双十三面没法抢暗杠",
+        "吃nya!碰nya!杠nya!诶?无役和振听是什么意思啊?",
+        "四个2 杠nya!四个4s 炸弹nya!",
+        "雨音に消えてく 一人で踊る少女 傘に隠れたまま 水溜りに揺れた",
+        "我们这个Flime遇水变大变粗,很好用的",
+        "The Game Powered By Fox",
+        "闯关弟子注意,本关考验你掷骰功夫,你走上方台,定坐中央,闭眼静投六面骰子,如果投出6点,方可过关,否则必遭严惩,你明白吗?",
+        "如果一个人是一只狐狸,那它是人还是他是狐狸?",
+        "我喜欢狐狸,你呢?",
+        "唔诶?又在偷偷查jrrp啦~?捉~!!",
+        "jrrp~!你的jrrp是…是jrrp~!",
+        "早安哦~!虽然现在可能不是早上…,那…早午晚安!",
+        "今天也成功打败被窝恶魔了呢!奖励1000金币~!不过好像没有金币栏?那就奖励…一个奖励!",
+        "唔?你醒啦~,该你挑战本周boss了,是…早八大魔王?!"
+    ];
+
+    let luckycolor = [Math.round(256 * Math.random() - .5), Math.round(256 * Math.random() - .5), Math.round(256 * Math.random() - .5)];
+    document.body.style.backgroundColor = `rgb(${luckycolor[0]},${luckycolor[1]},${luckycolor[2]})`;
+    document.getElementById("color").style.textShadow = `rgb(${255-luckycolor[0]},${255-luckycolor[1]},${255-luckycolor[2]}) 1.5px 1.5px`;
+
+    document.getElementById("jrrp").innerText = String(Math.round(101 * Math.random() - .5));
+    document.getElementById("tips").innerText = word[Math.round(word.length * Math.random() - .5)];
+    document.getElementById("color").innerText = `你今天的幸运色是\nRGB(${luckycolor[0]},${luckycolor[1]},${luckycolor[2]})`;
+
+</script>
