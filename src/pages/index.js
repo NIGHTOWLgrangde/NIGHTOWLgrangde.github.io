@@ -64,10 +64,10 @@ export default function () {
                 <div id='index-page-main'>
 
                     <div id='logo' style={{ textAlign: "center" }}>
-                        <input type='text' placeholder='请输入文本' style={{ width: '100%', fontSize: '60px', textAlign: 'center', borderRadius: '20px', backgroundColor: '#FFFFFF66', border: '4px solid black' }}></input>
+                        <input type='text' placeholder='双击插♂入标题' style={{ width: '100%', fontSize: '60px', textAlign: 'center', borderRadius: '20px', backgroundColor: '#FFFFFF66', border: '4px solid black' }}></input>
                     </div>
                     <div id='index-page-description'>
-                        黑子说话！
+                        喵喵喵？！
                     </div>
                     <div id='index-page-button-container'>
                         <div id='index-page-button'>
