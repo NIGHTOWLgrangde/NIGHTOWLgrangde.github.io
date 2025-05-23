@@ -11,7 +11,6 @@ import TOC from '@theme/TOC';
 import type {Props} from '@theme/BlogPostPage';
 import Unlisted from '@theme/Unlisted';
 import type {BlogSidebar} from '@docusaurus/plugin-content-blog';
-import Comment from '../../components/GiscusComments';
 
 function BlogPostPageContent({
   sidebar,
@@ -47,7 +46,6 @@ function BlogPostPageContent({
       {(nextItem || prevItem) && (
         <BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />
       )}
-      {!hideComment && <Comment />}
     </BlogLayout>
   );
 }
