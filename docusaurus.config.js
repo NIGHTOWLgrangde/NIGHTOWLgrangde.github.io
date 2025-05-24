@@ -13,7 +13,7 @@ const path = require('path');
 const config = {
   title: '沐沐的自闭小站',
   tagline: '可安可可可爱了!',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon1.ico',
 
   // Set the production url of your site here
   url: 'https://nightowlgrangde-github-io.pages.dev',
