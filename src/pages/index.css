@@ -4,8 +4,7 @@ div#index-page-container {
     flex-direction: column;
     align-items: center;
     justify-items: center;
-    color: rgb(245, 245, 245);
-
+    color: rgb(255, 255, 255);
 }
 
 div#index-page-bg {

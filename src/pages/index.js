@@ -5,7 +5,6 @@ import Layout from '@theme/Layout';
 import './index.css'
 
 export default function () {
-
     // 定义背景图片链接数组
     const desktopBackgroundImages = [
         "./docs/pic1.jpg"
@@ -24,6 +23,8 @@ export default function () {
 
     // 定义状态存储背景图片
     const [backgroundImage, setBackgroundImage] = useState('');
+    // 新增状态管理标题
+    const [title, setTitle] = useState('');
 
     // 随机选择背景图片
     const selectRandomBackgroundImage = () => {
@@ -32,8 +33,38 @@ export default function () {
         setBackgroundImage(images[randomIndex]);
     };
 
+    const [logoColor, setLogoColor] = useState('');
+    const [openTime, setOpenTime] = useState('');
+    const [stayTime, setStayTime] = useState('');
+
     // 在组件挂载时选择背景图片
     useEffect(() => {
+        var cometime = new Date();
+
+        update();
+        setInterval(() => {
+            update();
+        }, 100);
+
+        function update() {
+            setLogoColor(`hsl(${(new Date() / 30) % 360},50%,70%)`);
+            setOpenTime(TimetoTextDay(new Date() - 1748030400000));
+            setStayTime(TimetoTextStay(new Date() - cometime));
+        }
+
+        function TimetoTextDay(time) {
+            return `${Math.round(time / 864) / 100000}天`;
+        }
+        
+        function TimetoTextStay(time) {
+            if (time <= 1000000) {
+                return `${Math.round(time / 1000)}秒,欢迎你的来访٩(๑❛ᴗ❛๑)۶`;
+            }
+            else  {
+                return `${Math.round(time / 600) / 100}分,为你颁发─=≡Σ((( つ•̀ω•́)つ发呆达人`;
+            }
+        }
+
         // 初始化时选择背景图片
         selectRandomBackgroundImage();
         isMobileRatioOld = isMobileRatio();
@@ -45,7 +76,7 @@ export default function () {
             selectRandomBackgroundImage();
         };
 
-        // 添加resize事件监听器
+        // 添加事件监听器
         window.addEventListener('resize', handleResize);
 
         // 清理事件监听器
@@ -53,7 +84,6 @@ export default function () {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
-
 
     return (
         <Layout description=''>
@@ -63,11 +93,11 @@ export default function () {
                 <div id='index-page-bg-mask'></div>
                 <div id='index-page-main'>
 
-                    <div id='logo' style={{ textAlign: "center" }}>
-                        <input type='text' placeholder='双击插♂入标题' style={{ width: '100%', fontSize: '60px', textAlign: 'center', borderRadius: '20px', backgroundColor: '#FFFFFF66', border: '4px solid black' }}></input>
+                    <div id='logo' style={{textAlign: "center", color: `${logoColor}` }}>
+                     <span>欢迎来到我的小闭站</span>
                     </div>
-                    <div id='index-page-description'>
-                        喵喵喵？！
+                    <div id='index-page-description' style={{ textAlign: "center"}}>
+                        欢迎来到我的小站!想来点什么?<br />本站已启用{openTime}<br />你已经在本页面{stayTime}
                     </div>
                     <div id='index-page-button-container'>
                         <div id='index-page-button'>

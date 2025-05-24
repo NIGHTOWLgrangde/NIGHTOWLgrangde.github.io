@@ -85,6 +85,10 @@ const config = {
             label: '歌歌',
             to: '/docs/song',
           },
+          {
+            label: '大调查你的人品',
+            to: '/docs/jrrp',
+          }
         ],
       },
       footer: {
